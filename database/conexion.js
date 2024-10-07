@@ -3,8 +3,8 @@ import sql from "mssql";
 const dbSettings = {
     user: "sa",
     password: "191By1471",
-    server: "YAIL\\SERVIDORSQL",
-    database: "Actividades",
+    server: "localhost",//127.0.0.1
+    database: "Actividades_extraescolares",
     options: {
         encrypt: false,
         trustServerCertificate: true,
