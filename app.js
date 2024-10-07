@@ -1,15 +1,8 @@
-const express = require('express');
-const app = express();
-const router = require('./routes');
-require('dotenv').config();
+import express from 'express'
+import actividadesRoutes from './routes/actividades.routes.js'
 
-// Middleware para parsear JSON
-app.use(express.json());
+const app = express()
 
-// Usar rutas
-app.use('/api', router);
+app.use(actividadesRoutes)
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+export default app
