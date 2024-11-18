@@ -1,0 +1,4 @@
+Para iniciar la aplicacion requerimos de ejecutar el comando 
+npm run dev
+Estara corriendo el el puerto 4000
+http://localhost:3000

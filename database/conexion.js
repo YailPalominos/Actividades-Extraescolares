@@ -3,12 +3,12 @@ import sql from "mssql";
 const dbSettings = {
     user: "sa",
     password: "191By1471",
-    server: "localhost",//127.0.0.1 - localhost
+    server: "127.0.0.1",
     database: "Actividades_extraescolares",
     options: {
-        encrypt: false,
         trustServerCertificate: true,
-    }
+    },
+    port: 1433
 };
 
 export const getConnection = async () => {
