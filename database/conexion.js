@@ -3,7 +3,7 @@ import sql from "mssql";
 const dbSettings = {
     user: "sa",
     password: "191By1471",
-    server: "127.0.0.1",
+    server: "sqlserver",//127.0.0.1
     database: "Actividades_extraescolares",
     options: {
         trustServerCertificate: true,

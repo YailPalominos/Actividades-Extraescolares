@@ -1,4 +1,24 @@
 Para iniciar la aplicacion requerimos de ejecutar el comando 
 npm run dev
 Estara corriendo el el puerto 4000
-http://localhost:3000
+http://localhost:4000
+
+
+Para contruir contenedor
+docker build -t actividades-extraescolares .
+
+Ejecutar contenedor
+docker run -p 4000:4000 --name actividades-extraescolares -d actividades-extraescolares
+
+Crear una red para los contenedores
+docker network create red-contenedores
+
+Conectar a la red previamente creada
+docker network connect red-contenedores sqlserver
+docker network connect red-contenedores actividades-extraescolares
+
+En caso de cambios reiniciamos
+docker stop actividades-extraescolares           # Detiene el contenedor actual
+docker rm actividades-extraescolares             # Elimina el contenedor
+docker build -t actividades-extraescolares .     # Reconstruye la imagen
+docker run -p 4000:4000 --name actividades-extraescolares -d actividades-extraescolares  # Inicia el nuevo contenedor
