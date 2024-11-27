@@ -1,0 +1,5 @@
+http://127.0.0.1:51082/Actividad/GetAll
+http://127.0.0.1:51082/Actividad/GetOne/1
+http://127.0.0.1:51082/Actividad/Create
+http://127.0.0.1:51082/Actividad/Update
+http://127.0.0.1:51082/Actividad/Delete/1

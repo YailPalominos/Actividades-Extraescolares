@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actividades-extraescolares
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: actividades-extraescolares
+  template:
+    metadata:
+      labels:
+        app: actividades-extraescolares
+    spec:
+      containers:
+        - name: actividades-extraescolares
+          image: actividades-extraescolares:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SQL_SERVER_HOST
+              value: "sql-server-service" # Nombre del servicio de SQL Server en Kubernetes
+            - name: SQL_SERVER_PORT
+              value: "1433"
+            - name: SQL_SERVER_USER
+              value: "sa"
+            - name: SQL_SERVER_PASSWORD
+              value: "191By1471"
+            - name: SQL_SERVER_DATABASE
+              value: "Actividades_extraescolares"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: actividades-extraescolares
+spec:
+  selector:
+    app: actividades-extraescolares
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  clusterIP: None

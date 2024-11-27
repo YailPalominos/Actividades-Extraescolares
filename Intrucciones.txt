@@ -1,4 +1,33 @@
-Para iniciar la aplicacion requerimos de ejecutar el comando 
-npm run dev
-Estara corriendo el el puerto 4000
-http://localhost:3000
+-- Iniciar minikube
+minikube start
+
+--Construir la imagen del contenedor con Docker
+docker build -t actividades-extraescolares:latest .
+--Ejecutar desde la terminar de docker
+docker pull mcr.microsoft.com/mssql/server:2019-latest
+
+--Configurar el entorno Docker de Minikube
+& minikube -p minikube docker-env | Invoke-Expression
+
+--Aplicar el despliegue de Kubernetes
+kubectl apply -f nodejs-deployment.yaml
+kubectl apply -f sql-server-deployment.yaml
+
+
+--Abrir el servicio de la aplicación en Minikube
+minikube service actividades-extraescolares
+
+
+--Verificar los pods
+kubectl get pods
+
+--Verificar el servicio
+minikube service actividades-extraescolares
+
+--Verificar logs de un pot
+kubectl logs actividades-extraescolares-558976cbd-lss8j
+
+--Eliminar pots existentes
+kubectl delete pods --selector=app=actividades-extraescolares
+
+
